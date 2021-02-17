@@ -1,11 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
+import AppLayout from './containers/AppLayout';
 
-import App from './App';
-
-const title = 'Minimal App gist';
-
-ReactDOM.render(
-    <App title={title} />,
-    document.getElementById('app')
-);
+ReactDOM.render(<AppLayout />, document.getElementById('root'))

@@ -1,0 +1,111 @@
+html,
+body,
+#root,
+#main #layout {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+div {
+    outline: 1px solid red;
+}
+
+:root {
+    --landscape-width: 25;
+    --portrait-width: 80vw;
+    --header-height: 4rem;
+    --secs: 0.4s;
+    --bg-left: springgreen;
+    --bg-right: cyan;
+    --bg-main: lemonchiffon;
+}
+
+#root {
+    background: green;
+}
+
+#layout {
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    background: pink;
+}
+
+#top {
+    flex-flow: row;
+    height: 10%;
+    width: 100%;
+    background: yellow;
+
+    #navbar {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    
+        #left-box {
+            left: 20px;
+            position: absolute;
+            display: flex;
+            justify-content: flex-start;
+            .btn {
+                height: 40px;
+                width: 40px;
+                margin:10px;
+            }
+        }
+    
+        #right-box {
+            right: 20px;
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            .btn {
+                height: 40px;
+                width: 40px;
+                margin:10px;
+            }
+        }
+    }
+}
+
+#main {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    height: 90%;
+    width: 100%;
+    background: blue;
+
+    .editor {
+        overflow: auto;
+        flex-grow: 1;
+        background: red;
+    }
+}
+
+#left-side-bar,
+#right-side-bar {
+    transition: width var(--secs);
+    width: 0;
+    height: auto;
+    flex-shrink: 0;
+    background: blue;
+    overflow: hidden;
+    transition: transform var(--secs);
+    transition: width var(--secs);
+
+    @media (orientation: portrait) {
+        width: var(--portrait-width);
+    }
+
+    @media (orientation: landscape) {
+        &.open {
+            width: calc(1% * var(--landscape-width));
+        }
+        &.closed {
+            width: 0%;
+        }
+    }
+}

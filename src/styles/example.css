@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.container > div {
+    text-align: center;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.left-bar {
+    width: 60px; /*fixed width*/
+    flex-shrink: 0; /*avoid shriking*/
+}
+.middle-bar {
+    box-sizing: border-box;
+    flex-grow: 1; /*can grow*/
+}
+.right-bar {
+    flex-grow: 1; /*can grow*/
+    max-width: 0px; /*max-width*/
+    overflow: hidden;
+}
