@@ -1,0 +1,40 @@
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
+.App {
+    text-align: center;
+}
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+.App-title {
+    font-size: 1.5em;
+}
+.App-intro {
+    font-size: large;
+}
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+$milk-white: #bdc3c7;
+$grass-green: rgb(66, 155, 19);
+.App-header {
+    background-color: $grass-green;
+    height: 150px;
+    padding: 20px;
+    color: $milk-white;
+}

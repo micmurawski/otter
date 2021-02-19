@@ -66,7 +66,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
           {
             loader: 'postcss-loader', // postcss loader needed for tailwindcss
             options: {
@@ -76,19 +75,18 @@ module.exports = {
               },
             },
           },
+          'resolve-url-loader',
+          'sass-loader'
         ],
       },
 
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
-
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
-
+      //{ test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
       // Fonts and SVGs: Inline files
-      { test: /\.(woff(2)?|eot|ttf|otf|)$/, type: 'asset/inline' },
+      //{ test: /\.(woff(2)?|eot|ttf|otf|)$/, type: 'asset/inline' },
+
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader" }
     ],
   },
 }

@@ -1,0 +1,13 @@
+#main {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    height: 90%;
+    width: 100%;
+
+    .editor {
+        overflow: auto;
+        flex-grow: 1;
+        outline: 1px solid black;
+    }
+}

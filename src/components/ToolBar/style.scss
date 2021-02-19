@@ -1,0 +1,23 @@
+#left-side-bar,
+#right-side-bar {
+    transition: width var(--secs);
+    width: 0;
+    height: auto;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: transform var(--secs);
+    transition: width var(--secs);
+
+    @media (orientation: portrait) {
+        width: var(--portrait-width);
+    }
+
+    @media (orientation: landscape) {
+        &.open {
+            width: calc(1% * var(--landscape-width));
+        }
+        &.closed {
+            width: 0%;
+        }
+    }
+}

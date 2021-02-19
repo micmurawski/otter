@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import NavBar from '../../components/NavBar';
 import Editor from '../../components/Editor';
-import { ToolBar, ToolBarButton } from '../../components/ToolBar';
+import ToolBar from '../../components/ToolBar';
 import { LogBar } from '../../components/LogBar';
 
 class AppLayout extends React.Component {
@@ -10,29 +10,44 @@ class AppLayout extends React.Component {
     super(props);
 
     this.openToolBar = this.openToolBar.bind(this);
+    this.openLogBar = this.openLogBar.bind(this);
 
     this.state = {
       toolBarOpened: this.props.toolBarOpened ? true : false,
     }
+
+    this.toolBarRef = React.createRef();
+    this.editorRef = React.createRef();
+    this.logBarRef = React.createRef();
+    this.formRef = React.createRef();
   }
 
   openToolBar() {
     this.state.toolBarOpened = !this.state.toolBarOpened;
     this.setState(this.state);
+    this.toolBarRef.current.open();
+  }
+
+  openLogBar() {
+    this.state.logBarOpened = !this.state.logBarOpened;
+    this.setState(this.state);
+    this.logBarRef.current.open();
   }
 
   render() {
 
 
     return (
+
       <div id="layout">
         <div id="top">
-          <NavBar />
+          <NavBar toolBtnClick={this.openToolBar} logBtnClick={this.openLogBar}/>
         </div>
         <div id='main'>
-          <ToolBar />
-          <Editor />
-          <LogBar />
+          <ToolBar ref={this.toolBarRef} open={this.state.toolBarOpened} />
+          <Editor ref={this.editorRef}/>
+          <LogBar ref={this.logBarRef} open={this.state.logBarOpened}/>
+          <LogBar ref={this.formRef}/>
         </div>
       </div>
     );
